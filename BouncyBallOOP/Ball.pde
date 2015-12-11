@@ -11,6 +11,7 @@ class Ball {
     vel = PVector.random2D();
     c = color(random(255), random(50), random(100, 255));
     loc.add(vel);
+    vel.mult(10);
   }
 
 //after declaring fields and setting up constructors, you can define your methods
