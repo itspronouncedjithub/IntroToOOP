@@ -8,7 +8,9 @@ class Ball {
   Ball() {
     diam = 200;
     loc = new PVector(random(diam, width-diam), random(diam, height-diam));
+    vel = PVector.random2D();
     c = color(random(255), random(50), random(100, 255));
+    loc.add(vel);
   }
 
 //after declaring fields and setting up constructors, you can define your methods
@@ -16,5 +18,18 @@ class Ball {
     fill(c);
     noStroke();
     ellipse(loc.x, loc.y, diam, diam);
+  }
+
+  void move() {
+    fill(c);
+    noStroke();
+    ellipse(loc.x, loc.y, diam, diam);
+    loc.add(vel);
+    if(loc.x-diam/2 <= 0 || loc.x+diam/2 >= 800){
+      vel.x = -vel.x;
+    }
+    if(loc.y-diam/2 <= 0 || loc.y+diam/2 >= 600){
+      vel.y = -vel.y;
+    }
   }
 }
